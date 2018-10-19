@@ -29,9 +29,9 @@ The resulting executables can be found in build/release/src.
 
 Advanced options:
 
-Parallel build: run `make -j<number of threads>` instead of `make`.
+Parallel build: run `make -j<number of threads>` instead of `make`... only if you have enough RAM (>= 2 GB)
 
-So if you have a CPU with 4 threads, you could buld with : `make -j 4`
+For example, if you have a CPU with 4 threads, run : `make -j 4`
 
 ### On Windows:
 
