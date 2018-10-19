@@ -4,11 +4,22 @@ Website : https://www.elphyrecoin.xyz
 
 ## Building ElphyreCoin
 
-### On *nix:
+### On *nix :
 
+#### To install dependencies on Ubuntu :
+
+If you are using Ubuntu 18.x you may need to downgrade gcc7 to gcc 6. There is an example of how to do so in the scripts/ directory.
+
+**Ubuntu 18.x**
+`sudo apt install build-essential cmake libboost-all-dev miniupnpc libunbound-dev graphviz doxygen libunwind8-dev pkg-config libssl-dev libcurl4-openssl-dev libgtest-dev libreadline-dev libminiupnpc-dev libzmq3-dev libsodium-dev libpgm-dev libnorm-dev`
+
+**Ubuntu 16.x**
+`sudo apt install build-essential cmake libboost-all-dev miniupnpc libunbound-dev graphviz doxygen libunwind8-dev pkg-config libssl-dev libcurl4-openssl-dev libgtest-dev libreadline-dev libminiupnpc-dev libzmq3-dev libsodium-dev libpgm-dev`
+
+#### Cloning the rep :
 `git clone https://github.com/elphyrecoin/elphyrecoin.git`
 
-To build :
+#### To build :
 
 `cd elphyrecoin`
 
