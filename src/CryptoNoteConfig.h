@@ -23,23 +23,23 @@ const unsigned EMISSION_SPEED_FACTOR                         = 19;
 static_assert(EMISSION_SPEED_FACTOR <= 8 * sizeof(uint64_t), "Bad EMISSION_SPEED_FACTOR");
 
 const size_t   CRYPTONOTE_REWARD_BLOCKS_WINDOW               = 100;
-const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE     = 20000; //size of block (bytes) after which reward for block calculated using block size
+const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE     = 20000;
 const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2  = 1000000;
 const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V1  = 100000;
 const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_CURRENT = CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE;
 const size_t   CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE        = 600;
 const size_t   CRYPTONOTE_DISPLAY_DECIMAL_POINT              = 8;
-const uint64_t MINIMUM_FEE                                   = 100000; // for now Minimum fee would be 0.001 PARS for a while 
+const uint64_t MINIMUM_FEE                                   = 100000; 
 const uint64_t DEFAULT_DUST_THRESHOLD                        = 100000000;
 const uint64_t MAX_TX_MIXIN_SIZE                             = 20;
 const uint64_t MAX_TRANSACTION_SIZE_LIMIT                    = CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2 / 2 - CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE;
 
 const uint64_t EXPECTED_NUMBER_OF_BLOCKS_PER_DAY             = 24 * 60 * 60 / DIFFICULTY_TARGET;
 const size_t   DIFFICULTY_WINDOW                             = EXPECTED_NUMBER_OF_BLOCKS_PER_DAY; // blocks
-const size_t   DIFFICULTY_WINDOW_V2                          = 60;  // blocks
-const size_t   DIFFICULTY_WINDOW_V3                          = 60; // blocks (add one to compensate off-by-one in difficulty calculation)
-const size_t   DIFFICULTY_CUT                                = 60;  // timestamps to cut after sorting
-const size_t   DIFFICULTY_LAG                                = 15;  // !!!
+const size_t   DIFFICULTY_WINDOW_V2                          = 60; // blocks
+const size_t   DIFFICULTY_WINDOW_V3                          = 60; 
+const size_t   DIFFICULTY_CUT                                = 60; // timestamps to cut after sorting
+const size_t   DIFFICULTY_LAG                                = 15;
 static_assert(2 * DIFFICULTY_CUT <= DIFFICULTY_WINDOW - 2, "Bad DIFFICULTY_WINDOW or DIFFICULTY_CUT");
 
 const size_t   MAX_BLOCK_SIZE_INITIAL                        = 20 * 1024;
@@ -88,8 +88,8 @@ const uint8_t  BLOCK_MAJOR_VERSION_4                         =  4;
 const uint8_t  BLOCK_MINOR_VERSION_0                         =  0;
 const uint8_t  BLOCK_MINOR_VERSION_1                         =  1;
 
-const size_t   BLOCKS_IDS_SYNCHRONIZING_DEFAULT_COUNT        =  10000;  //by default, blocks ids count in synchronizing
-const size_t   BLOCKS_SYNCHRONIZING_DEFAULT_COUNT            =  200;    //by default, blocks count in blocks downloading
+const size_t   BLOCKS_IDS_SYNCHRONIZING_DEFAULT_COUNT        =  10000;  // by default, blocks ids count in synchronizing
+const size_t   BLOCKS_SYNCHRONIZING_DEFAULT_COUNT            =  200;    // by default, blocks count in blocks downloading
 const size_t   COMMAND_RPC_GET_BLOCKS_FAST_MAX_COUNT         =  1000;
 
 const int      P2P_DEFAULT_PORT                              =  17777;
@@ -108,16 +108,17 @@ const uint32_t P2P_DEFAULT_CONNECTION_TIMEOUT                = 5000;          //
 const uint32_t P2P_DEFAULT_PING_CONNECTION_TIMEOUT           = 2000;          // 2 seconds
 const uint64_t P2P_DEFAULT_INVOKE_TIMEOUT                    = 60 * 2 * 1000; // 2 minutes
 const size_t   P2P_DEFAULT_HANDSHAKE_INVOKE_TIMEOUT          = 5000;          // 5 seconds
-const uint32_t P2P_FAILED_ADDR_FORGET_SECONDS                = (60 * 60);     //1 hour
-const uint32_t P2P_IP_BLOCKTIME                              = (60 * 60 * 24);//24 hour
+const uint32_t P2P_FAILED_ADDR_FORGET_SECONDS                = (60 * 60);     // 1 hour
+const uint32_t P2P_IP_BLOCKTIME                              = (60 * 60 * 24);// 24 hour
 const uint32_t P2P_IP_FAILS_BEFORE_BLOCK                     = 10;
-const uint32_t P2P_IDLE_CONNECTION_KILL_INTERVAL             = (5 * 60);      //5 minutes
+const uint32_t P2P_IDLE_CONNECTION_KILL_INTERVAL             = (5 * 60);      // 5 minutes
 
 const char     P2P_STAT_TRUSTED_PUB_KEY[]                    = "";
 
 const char* const SEED_NODES[] = { 
   "46.105.124.204:17777",
   "163.172.144.213:17777",
+  "51.15.73.100:17777",
 };
 
 struct CheckpointData {
@@ -126,7 +127,11 @@ struct CheckpointData {
 };
 
 const std::initializer_list<CheckpointData> CHECKPOINTS = { 
-
+  {1, 		"28672469c46ada08e7ea1128db2aeb43c4479c0efba00f14c6681fe510216367" },
+  {100,		"c32cb72822bd33cd8f10376f3fd0f3e7884a03aee2aa4d27acf952e0c5a91cee" },
+  {500,		"5cee7f53ecd09fcb9d0d07fe8a173f7dd5172bb7e342b57201a1fc206fa6d92d" },
+  {1000, 	"0d20be12fe2682124dae720185fd9b5b2982a4485d08551f20f0b352e26720a7" },
+  {1500,        "51e7d37da8522619c74487ffc2bb1f91c5875493d76f9117aa5383bc01b3872b" },
 };
 
 } // CryptoNote
