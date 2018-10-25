@@ -45,7 +45,7 @@ http://www.boost.org/
 
 Open the Windows command line and change to the Elphyrecoin's directory. Then, run this command:
 
-mkdir build && cd build && cmake .. -G "Visual Studio 15 2017 Win64" ..
+`mkdir build && cd build && cmake .. -G "Visual Studio 15 2017 Win64" ..`
 
 Then open ElphyreCoin.sln File in VisualStudio (2017).
 
