@@ -37,7 +37,11 @@ For example, if you have a CPU with 4 threads, run : `make -j 4`
 
 Dependencies: MSVC 2013 or later, CMake 2.8.6 or later, and Boost 1.55 or later. You may download them from:
 
-http://www.microsoft.com/ / http://www.cmake.org/ / http://www.boost.org/
+http://www.microsoft.com/
+
+http://www.cmake.org/
+
+http://www.boost.org/
 
 Donwload the last sourcecode (zip file) here : https://github.com/elphyrecoin/elphyrecoin/releases
 
