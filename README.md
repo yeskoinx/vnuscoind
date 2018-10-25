@@ -49,6 +49,8 @@ mkdir build && cd build && cmake .. -G "Visual Studio 15 2017 Win64" ..
 
 Then open ElphyreCoin.sln File in VisualStudio (2017).
 
-In VS Solution Explorer select upnpc-static then : `right click : Properies -> C/C++ -> Code Generation -> Runtime Library - > change it to Multi-threaded (/MT)`
+In VS Solution Explorer select upnpc-static then :
+
+`right click : Properies -> C/C++ -> Code Generation -> Runtime Library - > change it to Multi-threaded (/MT)`
 
 And Finaly do the Build with F5 key.
