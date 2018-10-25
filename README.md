@@ -51,7 +51,7 @@ Open the Windows command line and change to the Elphyrecoin's directory. Then, r
 
 You should have generated a Elphyrecoin.sln file. Then open this File in VisualStudio (2017).
 
-In VisualStudio, in VS Solution Explorer, find `upnpc-static` then :
+In VisualStudio, in VS Solution Explorer (right pane), find `upnpc-static` then :
 
 `right click : Properies -> C/C++ -> Code Generation -> Runtime Library - > change it to Multi-threaded (/MT)`
 
