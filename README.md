@@ -43,12 +43,12 @@ http://www.cmake.org/
 
 http://www.boost.org/
 
-To build, change to a directory where this file is located, and run this commands: (VisualStudio 2017)
+Open the Windows command line and change to the Elphyrecoin's directory. Then, run this command:
 
 mkdir build && cd build && cmake .. -G "Visual Studio 15 2017 Win64" ..
 
-then open ElphyreCoin.sln File on Visual Studio
+Then open ElphyreCoin.sln File in VisualStudio (2017).
 
-In VS' Solution Explorer select upnpc-static' Properies -> C/C++ -> Code Generation -> Runtime Library - > change it to Multi-threaded (/MT)
+In VS Solution Explorer select upnpc-static then : 'right click : Properies -> C/C++ -> Code Generation -> Runtime Library - > change it to Multi-threaded (/MT)
 
-And Finaly do the Build.
+And Finaly do the Build with F5 key.
