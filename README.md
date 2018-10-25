@@ -43,6 +43,8 @@ http://www.cmake.org/
 
 http://www.boost.org/
 
+Donwload the last sourcecode (zip file) here : https://github.com/elphyrecoin/elphyrecoin/releases
+
 Open the Windows command line and change to the Elphyrecoin's directory. Then, run this command:
 
 `mkdir build && cd build && cmake .. -G "Visual Studio 15 2017 Win64" ..`
