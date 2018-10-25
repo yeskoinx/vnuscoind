@@ -43,7 +43,7 @@ http://www.cmake.org/
 
 http://www.boost.org/
 
-To build, change to a directory where this file is located, and run this commands: (VisualStudio 2015)
+To build, change to a directory where this file is located, and run this commands: (VisualStudio 2017)
 
 mkdir build && cd build && cmake .. -G "Visual Studio 15 2017 Win64" ..
 
