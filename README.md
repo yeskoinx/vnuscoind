@@ -37,7 +37,7 @@ For example, if you have a CPU with 4 threads, run : `make -j 4`
 
 #### Prerequisites
 
---> Install Boost vers 1.59 (ensuring you download the installer for MSVC 14) : https://sourceforge.net/projects/boost/files/boost-binaries/1.59.0/boost_1_59_0-msvc-14.0-64.exe/download (Don't use last versions as 1.68 as it is buggy !)
+--> Install Boost vers 1.59 (ensuring you download the installer for MSVC 14) : https://sourceforge.net/projects/boost/files/boost-binaries/1.59.0/boost_1_59_0-msvc-14.0-64.exe/download (Don't use last versions as 1.68 as it is buggy !). One installed, you should have your boost folder in : C:/local/boost_1_59_0
 
 --> Get cmake 2.8.6 or later : https://cmake.org/files/v3.12/cmake-3.12.3-win64-x64.msi
 
@@ -56,28 +56,29 @@ You will need this for the project to build correctly (In past versions, this it
 
 ##### 1rst part : your_coin.sln generation
 
---> download your_coin code and unzip it
+--> download your_coin code (your_coin.zip) and unzip it
 
 --> Open files explorer, go to your_coin folder
 
 --> create a new folder called "build" (\your_coin\build)
 
---> Open Visual Studio 2017 command prompt (you should create a .bat file to open it easilly with : `%comspec% /k "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"`)
+--> Open Visual Studio 2017 Command Prompt (you should create a .bat file to open it easilly with : `%comspec% /k "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"`)
 
---> `cd C:\..\your_coin\build`
+--> In Visual Studio 2017 Command Prompt run : `cd C:\..\your_coin\build`
 
---> run cmake with BOOST_ROOT option : `cmake -G "Visual Studio 14 Win64" .. -DBOOST_ROOT=C:/local/boost_1_59_0`
+--> Then, one in your_coin folder, run cmake with BOOST_ROOT option : `cmake -G "Visual Studio 14 Win64" .. -DBOOST_ROOT=C:/local/boost_1_59_0`
+
 You should have generated a "your_coin.sln" file.
 
 ##### 2nd part : build
 
-Open the your_coin.sln file with Visual Studio 2017.
+Open the your_coin.sln file with Visual Studio 2017 (double-click your_coin.sln in Files Explorer and it will open in Visual Studio)
 
-In VS Solution Explorer (right pane) right-click **EVERY ITEMS** and select : `Properies -> C/C++ -> Code Generation -> Runtime Library - > change it to Multi-threaded (/MT)`
+1/ Select `Release` (and not Debug !) and `x64` in the upper menu.
 
-Verify you have selected Release (and not Debug) and x64
+2/ Onece in Visual Studio : in VS Solution Explorer (right pane) right-click **EVERY ITEMS** and select : `Properies -> C/C++ -> Code Generation -> Runtime Library - > change it to Multi-threaded (/MT)`.
 
-And Finaly do the Build with F5 key.
+3/ And Finaly do the Build with F5 key.
 
 If all went well..., you should find your .exe file(s) in your_coins/build/src/Release
 
