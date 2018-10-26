@@ -56,3 +56,16 @@ In VisualStudio, in VS Solution Explorer (right pane), find `upnpc-static` then 
 `right click : Properies -> C/C++ -> Code Generation -> Runtime Library - > change it to Multi-threaded (/MT)`
 
 And Finaly do the Build with F5 key.
+
+#### HOW TO RESTORE A WALLET FROM OFFLINE PAPER-WALLET WITH MNEMONIC SEED ?
+you need your Mnemonic seed. Don't forget to copy it when creating your wallet. You should copy all the "Private keys" too (spend key + view key)
+
+Then run :
+
+`simplewallet.exe --restore-deterministic-wallet --wallet-file YOUR_WALLET_NAME`
+
+Enter a password
+
+Enter your mnemonic seed
+
+... and it should work !
