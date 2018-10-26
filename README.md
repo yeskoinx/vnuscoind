@@ -62,7 +62,7 @@ You will need this for the project to build correctly (In past versions, this it
 
 --> create a new folder called "build" (\your_coin\build)
 
---> Open Visual Studio 2017 command prompt (you should create a .bat file to open it easilly with : `%comspec% /k "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"`
+--> Open Visual Studio 2017 command prompt (you should create a .bat file to open it easilly with : `%comspec% /k "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"`)
 
 --> `cd C:\..\your_coin\build`
 
