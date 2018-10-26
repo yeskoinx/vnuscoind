@@ -62,7 +62,7 @@ you need your Mnemonic seed. Don't forget to copy it when creating your wallet. 
 
 Then run :
 
-`simplewallet.exe --restore-deterministic-wallet --wallet-file YOUR_WALLET_NAME`
+`./simplewallet --restore-deterministic-wallet --wallet-file YOUR_WALLET_NAME`
 
 Enter a password
 
