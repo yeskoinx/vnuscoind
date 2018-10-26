@@ -62,18 +62,18 @@ You will need this for the project to build correctly (In past versions, this it
 
 --> create a new folder called "build" (\your_coin\build)
 
---> Open Visual Studio 2017 command prompt (you should create a .bat file to open it easilly with : %comspec% /k "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
+--> Open Visual Studio 2017 command prompt (you should create a .bat file to open it easilly with : `%comspec% /k "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"`
 
---> cd C:\..\your_coin\build
+--> `cd C:\..\your_coin\build`
 
---> run cmake with BOOST_ROOT option : cmake -G "Visual Studio 14 Win64" .. -DBOOST_ROOT=C:/local/boost_1_59_0
+--> run cmake with BOOST_ROOT option : `cmake -G "Visual Studio 14 Win64" .. -DBOOST_ROOT=C:/local/boost_1_59_0`
 You should have generated a "your_coin.sln" file.
 
 ##### 2nd part : build
 
 Open the your_coin.sln file with Visual Studio 2017.
 
-In VS Solution Explorer (right pane) right-click EVERY ITEMS and select : Properies -> C/C++ -> Code Generation -> Runtime Library - > change it to Multi-threaded (/MT)
+In VS Solution Explorer (right pane) right-click **EVERY ITEMS** and select : `Properies -> C/C++ -> Code Generation -> Runtime Library - > change it to Multi-threaded (/MT)`
 
 Verify you have selected Release (and not Debug) and x64
 
