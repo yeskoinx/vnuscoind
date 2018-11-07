@@ -57,8 +57,8 @@ const size_t   FUSION_TX_MAX_SIZE                            = CRYPTONOTE_BLOCK_
 const size_t   FUSION_TX_MIN_INPUT_COUNT                     = 12;
 const size_t   FUSION_TX_MIN_IN_OUT_COUNT_RATIO              = 4;
 
-const uint32_t UPGRADE_HEIGHT_V2                             = 0; // Diff algo Change from cryptonote default to lwma
-const uint32_t UPGRADE_HEIGHT_V3                             = 1; // POW algo Change from cryptonote default to cnv7 Anti ASIC
+const uint32_t UPGRADE_HEIGHT_V2                             = 0; // Diff algo : lwma
+const uint32_t UPGRADE_HEIGHT_V3                             = 1; // POW algo : cnv7 Anti ASIC
 const uint32_t UPGRADE_HEIGHT_V4                             = 2; // Block Size Changed to 1mb
 
 const unsigned UPGRADE_VOTING_THRESHOLD                      = 90; // percent
@@ -131,7 +131,9 @@ const std::initializer_list<CheckpointData> CHECKPOINTS = {
   {100,		"c32cb72822bd33cd8f10376f3fd0f3e7884a03aee2aa4d27acf952e0c5a91cee" },
   {500,		"5cee7f53ecd09fcb9d0d07fe8a173f7dd5172bb7e342b57201a1fc206fa6d92d" },
   {1000, 	"0d20be12fe2682124dae720185fd9b5b2982a4485d08551f20f0b352e26720a7" },
-  {1500,        "51e7d37da8522619c74487ffc2bb1f91c5875493d76f9117aa5383bc01b3872b" },
+  {2000,	"34a5a4e45c89bef96288580b40d9174b6ba37250319b8a384b623e1a4c8f8db5" },
+  {5000,	"3e7588e1aed8b15d550632fd9427434fd260ceacae8eb7e3af2a03c7f3dd0dc7" },
+  {10000,	"69518b7a17d136a8119208cc1492efbccab9a40a44638f591679533c0d993ff7" },
 };
 
 } // CryptoNote
