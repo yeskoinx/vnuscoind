@@ -5,41 +5,41 @@
 namespace CryptoNote {
 namespace parameters {
 
-const uint64_t DIFFICULTY_TARGET                             = 120; // seconds
+const uint64_t DIFFICULTY_TARGET                             = 120; // Difficulty target is an ideal time period between blocks. Measured in seconds.
 const uint64_t CRYPTONOTE_MAX_BLOCK_NUMBER                   = 500000000;
 const size_t   CRYPTONOTE_MAX_BLOCK_BLOB_SIZE                = 500000000;
 const size_t   CRYPTONOTE_MAX_TX_SIZE                        = 1000000000;
 const uint64_t CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX       = 0x1ffb6007; // addresses start with "Phyre"
-const size_t   CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW          = 6;
+const size_t   CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW          = 6; // maturity : Number of blocks to unlock miner transactions
 const uint64_t CRYPTONOTE_BLOCK_FUTURE_TIME_LIMIT            = 500;
 
 const size_t   BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW             = 11;
 
 // MONEY_SUPPLY - total number coins to be generated
-const uint64_t MONEY_SUPPLY                                  = UINT64_C(858986905600000000);
-const uint64_t TAIL_EMISSION_REWARD                          = UINT64_C(10000000000);
+const uint64_t MONEY_SUPPLY                                  = UINT64_C(858986905600000000); // Total amount of coins to be emitted.
+const uint64_t TAIL_EMISSION_REWARD                          = UINT64_C(10000000000); // Block reward will never drop below this value.
 const size_t CRYPTONOTE_COIN_VERSION                         = 1;
-const unsigned EMISSION_SPEED_FACTOR                         = 19;
+const unsigned EMISSION_SPEED_FACTOR                         = 19; // Constant defines emission curve slope. This parameter is required to calulate block reward.
 static_assert(EMISSION_SPEED_FACTOR <= 8 * sizeof(uint64_t), "Bad EMISSION_SPEED_FACTOR");
 
 const size_t   CRYPTONOTE_REWARD_BLOCKS_WINDOW               = 100;
-const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE     = 20000;
-const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2  = 1000000;
-const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V1  = 100000;
-const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_CURRENT = CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE;
+const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE     = 20000; // The maximum size of a block not resulting into penelty.
+const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V1  = 100000; // The maximum size of a block not resulting into penelty. Used by (v1) blockchains
+const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2  = 1000000; // The maximum size of a block not resulting into penelty. Used by (v2) blockchains
+const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_CURRENT = 60000; // increasing to allow bigger tx
 const size_t   CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE        = 600;
 const size_t   CRYPTONOTE_DISPLAY_DECIMAL_POINT              = 8;
-const uint64_t MINIMUM_FEE                                   = 100000; 
-const uint64_t DEFAULT_DUST_THRESHOLD                        = 100000000;
+const uint64_t MINIMUM_FEE                                   = 100000; // Transactions with less than this fee wouldn’t be accepted by daemons
+const uint64_t DEFAULT_DUST_THRESHOLD                        = 100000000; // The amount bellow this value will be considered as dust
 const uint64_t MAX_TX_MIXIN_SIZE                             = 20;
-const uint64_t MAX_TRANSACTION_SIZE_LIMIT                    = CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2 / 2 - CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE;
+const uint64_t MAX_TRANSACTION_SIZE_LIMIT                    = CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2 - CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE;
 
 const uint64_t EXPECTED_NUMBER_OF_BLOCKS_PER_DAY             = 24 * 60 * 60 / DIFFICULTY_TARGET;
-const size_t   DIFFICULTY_WINDOW                             = EXPECTED_NUMBER_OF_BLOCKS_PER_DAY; // blocks
-const size_t   DIFFICULTY_WINDOW_V2                          = 60; // blocks
+const size_t   DIFFICULTY_WINDOW                             = EXPECTED_NUMBER_OF_BLOCKS_PER_DAY; // blocks - Window length for calculation the difficulty
+const size_t   DIFFICULTY_WINDOW_V2                          = 60; // blocks - Window length for calculation the difficulty. Used by (v2) blockchains
 const size_t   DIFFICULTY_WINDOW_V3                          = 60; 
 const size_t   DIFFICULTY_CUT                                = 60; // timestamps to cut after sorting
-const size_t   DIFFICULTY_LAG                                = 15;
+const size_t   DIFFICULTY_LAG                                = 15; // Lag of calculating the difficulty in terms of blocks
 static_assert(2 * DIFFICULTY_CUT <= DIFFICULTY_WINDOW - 2, "Bad DIFFICULTY_WINDOW or DIFFICULTY_CUT");
 
 const size_t   MAX_BLOCK_SIZE_INITIAL                        = 20 * 1024;
@@ -53,7 +53,7 @@ const uint64_t CRYPTONOTE_MEMPOOL_TX_LIVETIME                = 60 * 60 * 24;    
 const uint64_t CRYPTONOTE_MEMPOOL_TX_FROM_ALT_BLOCK_LIVETIME = 60 * 60 * 24 * 7; //seconds, one week
 const uint64_t CRYPTONOTE_NUMBER_OF_PERIODS_TO_FORGET_TX_DELETED_FROM_POOL = 7;  // CRYPTONOTE_NUMBER_OF_PERIODS_TO_FORGET_TX_DELETED_FROM_POOL * CRYPTONOTE_MEMPOOL_TX_LIVETIME = time to forget tx
 
-const size_t   FUSION_TX_MAX_SIZE                            = CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V1 * 30 / 100;
+const size_t   FUSION_TX_MAX_SIZE                            = CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_CURRENT * 15 / 100;
 const size_t   FUSION_TX_MIN_INPUT_COUNT                     = 12;
 const size_t   FUSION_TX_MIN_IN_OUT_COUNT_RATIO              = 4;
 
@@ -113,7 +113,7 @@ const uint32_t P2P_IP_BLOCKTIME                              = (60 * 60 * 24);//
 const uint32_t P2P_IP_FAILS_BEFORE_BLOCK                     = 10;
 const uint32_t P2P_IDLE_CONNECTION_KILL_INTERVAL             = (5 * 60);      // 5 minutes
 
-const char     P2P_STAT_TRUSTED_PUB_KEY[]                    = "";
+const char     P2P_STAT_TRUSTED_PUB_KEY[]                    = "0000000000000000000000000000000000000000000000000000000000000000"; // P2P stat trusted pub key
 
 const char* const SEED_NODES[] = { 
   "46.105.124.204:17777",
@@ -134,6 +134,9 @@ const std::initializer_list<CheckpointData> CHECKPOINTS = {
   {2000,	"34a5a4e45c89bef96288580b40d9174b6ba37250319b8a384b623e1a4c8f8db5" },
   {5000,	"3e7588e1aed8b15d550632fd9427434fd260ceacae8eb7e3af2a03c7f3dd0dc7" },
   {10000,	"69518b7a17d136a8119208cc1492efbccab9a40a44638f591679533c0d993ff7" },
+  {15000,	"864d693564c5f71e7c64a2dd593b4f6f6ce6f22624937e9bd01e8312c5f72856" },
+  {20000,	"efe7fa4bf1e3dcff716e735372d21cebab4549fe9c58f805777cc4e02bf82503" },
+  {23300,	"c9de81e9643107896cb2725065e3ada720ec5a163151fd5e40355dafb38aba14" },
 };
 
 } // CryptoNote
