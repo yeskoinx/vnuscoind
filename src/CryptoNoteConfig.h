@@ -15,7 +15,6 @@ const uint64_t CRYPTONOTE_BLOCK_FUTURE_TIME_LIMIT            = 500;
 
 const size_t   BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW             = 11;
 
-// MONEY_SUPPLY - total number coins to be generated
 const uint64_t MONEY_SUPPLY                                  = UINT64_C(858986905600000000); // Total amount of coins to be emitted.
 const uint64_t TAIL_EMISSION_REWARD                          = UINT64_C(10000000000); // Block reward will never drop below this value.
 const size_t CRYPTONOTE_COIN_VERSION                         = 1;
@@ -23,16 +22,19 @@ const unsigned EMISSION_SPEED_FACTOR                         = 19; // Constant d
 static_assert(EMISSION_SPEED_FACTOR <= 8 * sizeof(uint64_t), "Bad EMISSION_SPEED_FACTOR");
 
 const size_t   CRYPTONOTE_REWARD_BLOCKS_WINDOW               = 100;
-const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE     = 20000; // The maximum size of a block not resulting into penelty.
-const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V1  = 100000; // The maximum size of a block not resulting into penelty. Used by (v1) blockchains
-const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2  = 1000000; // The maximum size of a block not resulting into penelty. Used by (v2) blockchains
-const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_CURRENT = 60000; // increasing to allow bigger tx
+
+const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE     = 1000000;
+const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V1  = 100000;
+const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2  = 1000000;
+const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_CURRENT = 2000000; // increasing to allow bigger tx
 const size_t   CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE        = 600;
+
 const size_t   CRYPTONOTE_DISPLAY_DECIMAL_POINT              = 8;
 const uint64_t MINIMUM_FEE                                   = 100000; // Transactions with less than this fee wouldn’t be accepted by daemons
 const uint64_t DEFAULT_DUST_THRESHOLD                        = 100000000; // The amount bellow this value will be considered as dust
 const uint64_t MAX_TX_MIXIN_SIZE                             = 20;
-const uint64_t MAX_TRANSACTION_SIZE_LIMIT                    = CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2 - CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE;
+
+const uint64_t MAX_TRANSACTION_SIZE_LIMIT                    = CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_CURRENT - CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE;
 
 const uint64_t EXPECTED_NUMBER_OF_BLOCKS_PER_DAY             = 24 * 60 * 60 / DIFFICULTY_TARGET;
 const size_t   DIFFICULTY_WINDOW                             = EXPECTED_NUMBER_OF_BLOCKS_PER_DAY; // blocks - Window length for calculation the difficulty
@@ -53,7 +55,7 @@ const uint64_t CRYPTONOTE_MEMPOOL_TX_LIVETIME                = 60 * 60 * 24;    
 const uint64_t CRYPTONOTE_MEMPOOL_TX_FROM_ALT_BLOCK_LIVETIME = 60 * 60 * 24 * 7; //seconds, one week
 const uint64_t CRYPTONOTE_NUMBER_OF_PERIODS_TO_FORGET_TX_DELETED_FROM_POOL = 7;  // CRYPTONOTE_NUMBER_OF_PERIODS_TO_FORGET_TX_DELETED_FROM_POOL * CRYPTONOTE_MEMPOOL_TX_LIVETIME = time to forget tx
 
-const size_t   FUSION_TX_MAX_SIZE                            = CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_CURRENT * 15 / 100;
+const size_t   FUSION_TX_MAX_SIZE                            = CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE * 30 / 100;
 const size_t   FUSION_TX_MIN_INPUT_COUNT                     = 12;
 const size_t   FUSION_TX_MIN_IN_OUT_COUNT_RATIO              = 4;
 
@@ -131,12 +133,12 @@ const std::initializer_list<CheckpointData> CHECKPOINTS = {
   {100,		"c32cb72822bd33cd8f10376f3fd0f3e7884a03aee2aa4d27acf952e0c5a91cee" },
   {500,		"5cee7f53ecd09fcb9d0d07fe8a173f7dd5172bb7e342b57201a1fc206fa6d92d" },
   {1000, 	"0d20be12fe2682124dae720185fd9b5b2982a4485d08551f20f0b352e26720a7" },
-  {2000,	"34a5a4e45c89bef96288580b40d9174b6ba37250319b8a384b623e1a4c8f8db5" },
   {5000,	"3e7588e1aed8b15d550632fd9427434fd260ceacae8eb7e3af2a03c7f3dd0dc7" },
   {10000,	"69518b7a17d136a8119208cc1492efbccab9a40a44638f591679533c0d993ff7" },
   {15000,	"864d693564c5f71e7c64a2dd593b4f6f6ce6f22624937e9bd01e8312c5f72856" },
   {20000,	"efe7fa4bf1e3dcff716e735372d21cebab4549fe9c58f805777cc4e02bf82503" },
-  {23300,	"c9de81e9643107896cb2725065e3ada720ec5a163151fd5e40355dafb38aba14" },
+  {25000,       "3b47bd34e362ab2c09b2c724fe1da857e66001efb8f7f6536a9bdea932787a9d" },
+  {29900,	"2c6a3eb4d52a9061c86ddf39961c2251f9938ce2d0ac0e1868ae1b0be97fab24" },
 };
 
 } // CryptoNote
