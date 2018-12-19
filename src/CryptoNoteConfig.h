@@ -26,7 +26,7 @@ const size_t   CRYPTONOTE_REWARD_BLOCKS_WINDOW               = 100;
 const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE     = 1000000;
 const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V1  = 100000;
 const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2  = 1000000;
-const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_CURRENT = 2000000; // increasing to allow bigger tx
+const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_CURRENT = CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE;
 const size_t   CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE        = 600;
 
 const size_t   CRYPTONOTE_DISPLAY_DECIMAL_POINT              = 8;
@@ -34,7 +34,7 @@ const uint64_t MINIMUM_FEE                                   = 100000; // Transa
 const uint64_t DEFAULT_DUST_THRESHOLD                        = 100000000; // The amount bellow this value will be considered as dust
 const uint64_t MAX_TX_MIXIN_SIZE                             = 20;
 
-const uint64_t MAX_TRANSACTION_SIZE_LIMIT                    = CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_CURRENT - CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE;
+const uint64_t MAX_TRANSACTION_SIZE_LIMIT                    = CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2 / 2 - CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE;
 
 const uint64_t EXPECTED_NUMBER_OF_BLOCKS_PER_DAY             = 24 * 60 * 60 / DIFFICULTY_TARGET;
 const size_t   DIFFICULTY_WINDOW                             = EXPECTED_NUMBER_OF_BLOCKS_PER_DAY; // blocks - Window length for calculation the difficulty
@@ -45,7 +45,7 @@ const size_t   DIFFICULTY_LAG                                = 15; // Lag of cal
 static_assert(2 * DIFFICULTY_CUT <= DIFFICULTY_WINDOW - 2, "Bad DIFFICULTY_WINDOW or DIFFICULTY_CUT");
 
 const size_t   MAX_BLOCK_SIZE_INITIAL                        = 20 * 1024;
-const uint64_t MAX_BLOCK_SIZE_GROWTH_SPEED_NUMERATOR         = 100 * 1024;
+const uint64_t MAX_BLOCK_SIZE_GROWTH_SPEED_NUMERATOR         = 10000 * 1024;
 const uint64_t MAX_BLOCK_SIZE_GROWTH_SPEED_DENOMINATOR       = 365 * 24 * 60 * 60 / DIFFICULTY_TARGET;
 
 const uint64_t CRYPTONOTE_LOCKED_TX_ALLOWED_DELTA_BLOCKS     = 1;
@@ -135,10 +135,9 @@ const std::initializer_list<CheckpointData> CHECKPOINTS = {
   {1000, 	"0d20be12fe2682124dae720185fd9b5b2982a4485d08551f20f0b352e26720a7" },
   {5000,	"3e7588e1aed8b15d550632fd9427434fd260ceacae8eb7e3af2a03c7f3dd0dc7" },
   {10000,	"69518b7a17d136a8119208cc1492efbccab9a40a44638f591679533c0d993ff7" },
-  {15000,	"864d693564c5f71e7c64a2dd593b4f6f6ce6f22624937e9bd01e8312c5f72856" },
   {20000,	"efe7fa4bf1e3dcff716e735372d21cebab4549fe9c58f805777cc4e02bf82503" },
-  {25000,       "3b47bd34e362ab2c09b2c724fe1da857e66001efb8f7f6536a9bdea932787a9d" },
-  {29900,	"2c6a3eb4d52a9061c86ddf39961c2251f9938ce2d0ac0e1868ae1b0be97fab24" },
+  {30000,	"7cba0c8055cb4a865f77ae188cc98fb1b154d840e55bc91316f8f5b5873b035e" },
+  {40000,	"7f883e6b25d7cc100255c6fad0187cb81289fa569d3da748a44547b61125d0ff" },
 };
 
 } // CryptoNote
